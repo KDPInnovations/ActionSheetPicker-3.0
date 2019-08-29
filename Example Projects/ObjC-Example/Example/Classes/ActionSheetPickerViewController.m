@@ -62,9 +62,10 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+- (BOOL)shouldAutorotate {
     return YES;
 }
+
 
 #pragma mark - IBActions
 
@@ -166,7 +167,7 @@
     ActionSheetDatePicker *datePicker = [[ActionSheetDatePicker alloc] initWithTitle:@"Select a time" datePickerMode:UIDatePickerModeTime selectedDate:self.selectedTime target:self action:@selector(timeWasSelected:element:) origin:sender];
     datePicker.minuteInterval = minuteInterval;
     [datePicker addCustomButtonWithTitle:@"value" value:[NSDate date]];
-    [datePicker addCustomButtonWithTitle:@"sel" target:self selector:@selector(dateSelector:)];
+    [datePicker addCustomButtonWithTitle:@"sel" target:self selector:@selector(dateSelector)];
     [datePicker addCustomButtonWithTitle:@"Block" actionBlock:^{
         NSLog(@"Block invoked");
     }];
